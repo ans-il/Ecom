@@ -1,0 +1,22 @@
+
+<div class="container col-md-6">
+<h1 class="text-center mt-5">Login</h1>
+
+<form action="/login" method="post">
+  <div class="mb-3">
+    <label for="email" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">    
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control" placeholder="password" name="password" id="password">
+  </div>
+  <div class="mb-3">
+    <a href="/signup" class="text-decoration-none">Create new account ?</a>
+  </div>
+  {{#if error}}
+    <p class="text-danger text-center">{{error}}</p>
+  {{/if}}
+  <button type="submit" class="btn btn-success d-flex ms-auto">Login</button>
+</form>
+</div>

@@ -1,0 +1,39 @@
+<section>
+  <div class="container">
+    
+    <table class="table mt-5">
+      <thead>
+        <tr>
+          <th scope="col" class="text-center">Item</th>
+          <th scope="col" class="text-center">Title</th>
+          <th scope="col" class="text-center">Price</th>
+          <th scope="col" class="text-center">Quantity</th> 
+          <th scope="col" class="text-center"></th>          
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="height: 2rem;"></tr>
+        {{#each products}}        
+        <tr>
+          
+          <td class="text-center"><img src="/product-images/{{this.item}}.jpg" style="width:50px; height:50px;" />
+          </td>
+          <td class="text-center align-middle">{{this.product.name}}</td>                    
+          <td class="text-center align-middle">Rs.{{this.product.price}}</td>   
+          <td class="text-center">
+            <button class="btn btn-primary me-3" onclick="changeQty('{{this._id}}','{{this.item}}','{{../user._id}}',-1)">-</button>
+            <span id="{{this.item}}">{{this.quantity}}</span>
+            <button class="btn btn-primary ms-3" onclick="changeQty('{{this._id}}','{{this.item}}','{{../user._id}}',1)">+</button>
+          </td>
+          <td>
+            <button class="btn btn-danger" onclick="removeProduct('{{this._id}}','{{this.item}}')">Remove</button>            
+          </td>
+        </tr>
+        {{/each}}        
+      </tbody>      
+    </table>
+   <hr class="mt-5">
+   <h3 class="text-end me-5"><span class="fw-bold">Total: &nbsp;</span>Rs.<span id="total">{{total}}</span></h3>
+   <a href="/place-order" class="btn btn-success float-end me-5">Proceed to Buy</a>
+  </div>
+</section>
